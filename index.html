@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!--Import Google Icon Font-->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	<script type="text/javascript" src="sjcl.js"></script>
+	<!-- Import materialize.css -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css"
+	      integrity="sha256-zvFVp826siCUuxc2KZRdlkALzLZWNb7FaJm9K1mRxW0=
+          sha384-h7QwJFwh+HNDUUY7cIv9QpZTGo8z8kjEBQtPsTpN/+CfVkyFhvbt/i1Irqo7ohv3
+          sha512-koDUjGvRZrcni2jJFT9I3VRYY0PWNKtr1Wj9U36eLhcFgBm36KV11yTi4p2H3HwUMirxZ+dMpKeUuRjYOFjeDQ=="
+	      crossorigin="anonymous" media="screen">
+	<!-- Import materialize.js -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"
+	        integrity="sha256-T6iGJTr91LvmSE0OD+GJ79ArVNS0JClRUKJuTPDr0ac=
+            sha384-tbuhQMGuhso9TT2cijayn2Q51DZammvtkYn9viaSL2kSXHKhGzuHndXPofZAAFQ+
+            sha512-zCHGovd9kHtyOdCLYmXApVFPtXQjZNyjHGU6DKPKR1HnhiSnVc71r1x7bpahdGw7mOKbz6oZ1k7/gbfRNp50ag=="
+	        crossorigin="anonymous"></script>
+
+    <!-- Local non CDN CSS and JavaScript. Comment out for production use-->
+    <link type="text/css" rel="stylesheet" href="materialize/materialize.min.css"  media="screen"/>
+    <script type="text/javascript" src="materialize/materialize.min.js"></script>
+
+    <meta charset="UTF-8">
+    <title>FormHash</title>
+</head>
+<body>
+
+<div class="row">
+	<div class="col s12 m8 offset-m2 l6 offset-l3">
+		<form novalidate id="form" class="col s12" action="./submit" method="post">
+			<div class="card blue-grey darken-1">
+				<div class="card-content white-text">
+					<span class="card-title">Escape the Locked Box</span>
+					<div class="row">
+							<div class="row">
+								<div class="input-field col s12">
+									<input id="id_number" name="id" type="number" min="0" class="validate">
+									<label class="blue-grey-text text-lighten-4" for="id_number">ID</label>
+								</div>
+								<div class="input-field col s6">
+									<input id="first_name" name="f_name" type="text" class="validate">
+									<label class="blue-grey-text text-lighten-4" for="first_name">First Name</label>
+								</div>
+								<div class="input-field col s6">
+									<input id="last_name" name="l_name" type="text" class="validate">
+									<label class="blue-grey-text text-lighten-4" for="last_name">Last Name</label>
+								</div>
+								<div class="input-field col s12">
+									<input id="email" name="email" type="email" class="validate">
+									<label class="blue-grey-text text-lighten-4" for="email">Email</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="input-field col s12">
+									<input id="q1" name="q1" type="number" class="validate" autocomplete="off" required>
+									<label class="blue-grey-text text-lighten-4" for="q1">Question 1: 1 + 1 = ?</label>
+								</div>
+								<div class="input-field col s12">
+									<input id="q2" name="q2" type="text" class="validate" autocomplete="off" required>
+									<label class="blue-grey-text text-lighten-4" for="q2">6.02214129 × 10 23 is one ____</label>
+								</div>
+								<div class="input-field col s12">
+									<input id="q3" name="q3" type="text" class="validate" autocomplete="off" required>
+									<label class="blue-grey-text text-lighten-4" for="q3">What is used to open a door?</label>
+								</div>
+							</div>
+
+					</div>
+				</div>
+	                <div class="card-action">
+		                <button class="btn-flat btn-large blue-grey-text text-lighten-5 blue-grey darken-1" id="submit_button" type="submit" name="action">Submit<i class="material-icons right text">send</i>
+		                </button>
+	                </div>
+	            </div>
+			</form>
+        </div>
+    </div>
+<script type="text/javascript" src="index.js"></script>
+<!--<script type="text/javascript" src="hashGenerator.js"></script>-->
+</body>
+</html>
