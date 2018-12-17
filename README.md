@@ -1,0 +1,5 @@
+This is an example of using hashes to do client side validation. It allows the client to know if they are right about an answer without revealing the answer.
+I was inspired to make this after doing the "escape room challenge" here: https://sites.google.com/site/whollymolealt/
+The use of Google Forms means that the answers were being validated on the client side, and Google Forms just matches the plaintext because its form validation isn't designed to protect secret information.
+I'm using SHA256 hashes, so depending on the difficulty of the problem, a dictionary like attack may be possible, but the purpose of checking the hashes client side is to make it take more work to guess the solution to the hash. This is NOT a way to check for passwords, and there needs to be some server side code to deal with the form submission. I have not written that code.
+DO NOT USE THIS TECHNIQUE TO CHECK PASSWORDS. Password validation is supposed to occur server side.
