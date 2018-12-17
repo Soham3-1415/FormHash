@@ -4,6 +4,10 @@ const submit = document.getElementById('submit_button');
 const q1 = document.getElementById('q1');
 const q2 = document.getElementById('q2');
 const q3 = document.getElementById('q3');
+const emailError = email.parentElement.getElementsByTagName('span')[0]; // This is poorly designed
+const q1Error = q1.parentElement.getElementsByTagName('span')[0]; // This is poorly designed
+const q2Error = q2.parentElement.getElementsByTagName('span')[0]; //poor design
+const q3Error = q3.parentElement.getElementsByTagName('span')[0]; //poor design
 
 const q1CombHash = "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35";
 const q2CombHash = "9455f6681430a1d135ee4ace63084b5c6cf5d3af164698a5a53c005e46dac360A3bb28a544bed13c07ed0dd3fbb1230519ee57db010a7b64e2bcb49da26ff19c2A43fab012fad0377b45a1fc7c794f3af1ea80980be50f10a5318e3cf4c6101e70A92801676e2abbe1a01050645ea85177ca83199fb9e04262c860548b4ee63f98fAb4284008e00ebb23a3503d59a27dbd6a2fca161729a373f0a7d417646ebf6628A82d3bc8d972c73aa0cc34833dcaf83091a5013e16e211918bf35101d0bab52d1A185640c9448b27a614a8ea811815332726d02c750d9ca720c9e23256c6e6ed26Afa90adf20ce168fe2f1e06ad111b1c35c1ff9acc94be5491b4d1d633ee63e33dA79b638d9e9ed27cd0608c91447fef9736ae97fb083b507a42e07e9ffdbcd2700A7fa7c2fdc3f9fbf71b3c32f3b145715b9c888f916ba96dbb271cb67511095904A4c62bf1ba68241a23e59dd877d72f855bb04475d8bc568b5bec23ed1563238b2A08b5b5da1b93ecc3b08ef3f009509ad9b6e6f440a3963f4f9492fba39893841cAb5ca0a343e69dce8c30702b636c22871c129365f0eb9df81966f8e94f4c049b1A15ce4f5dd17bd4b181c962243f966dcac3f5a9b9eb9ca5aacb1b194c563dbadfAc30ff86e882b6c0256b624c455ca80510863e23b808db4ac2de446942e19e013Ae18ebaabb9f2fba0f9acbcf84e1e8bfdaa041eb52c186612c7d900d94378abf5A";
@@ -20,14 +24,18 @@ const checkDisBtn = () => {
 };
 
 email.addEventListener("input", event => {
+	if(!email.validity.valid)
+		emailError.setAttribute("data-error","Invalid email."); //poor design
 	checkDisBtn();
 },false);
 
 q1.addEventListener("input", event => {
 	if( q1CombHash.indexOf(hash(q1.value)) > -1)
 		q1.setCustomValidity("");
-	else
+	else {
+		q1Error.setAttribute("data-error","Wrong answer!"); //poor design
 		q1.setCustomValidity("Wrong answer!");
+	}
 
 	checkDisBtn();
 }, false);
@@ -35,8 +43,10 @@ q1.addEventListener("input", event => {
 q2.addEventListener("input", event => {
 	if( q2CombHash.indexOf(hash(q2.value)) > -1)
 		q2.setCustomValidity("");
-	else
+	else {
+		q2Error.setAttribute("data-error", "Wrong answer!"); //poor design
 		q2.setCustomValidity("Wrong answer!");
+	}
 
 	checkDisBtn();
 }, false);
@@ -44,8 +54,10 @@ q2.addEventListener("input", event => {
 q3.addEventListener("input", event => {
 	if( q3CombHash.indexOf(hash(q3.value)) > -1)
 		q3.setCustomValidity("");
-	else
+	else {
+		q3Error.setAttribute("data-error","Wrong answer!"); //poor design
 		q3.setCustomValidity("Wrong answer!");
+	}
 
 	checkDisBtn();
 }, false);
